@@ -34,3 +34,45 @@ padding: 5px;
 .display{
     height: 50px;
 }
+
+
+.zero{
+    order: 10;
+}
+.decimal{
+    order: 11;
+
+}
+.equal{
+    order: 12;
+}
+
+.one{
+    order:7;
+
+}
+.two{
+    order: 8;
+}
+.three{
+    order:9;
+
+}
+.four{
+    order: 4;
+}
+.five{
+    order: 5;
+}
+.six{
+    order:6;
+}
+.seven{
+    order:1;
+}
+.eight{
+    order: 2;
+}
+.nine{
+    order:3;
+}
