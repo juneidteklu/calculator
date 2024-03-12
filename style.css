@@ -3,7 +3,7 @@
 }
 .border{
     border: solid black
-}
+} 
 .calculator{
 width: 600px;
 height: 700px;
@@ -20,7 +20,7 @@ padding: 5px;
     display: flex;
 }
 .numbers{
-    flex: 2;
+    flex: 5;
     flex-wrap: wrap;   
 }
 .numbers > button{
@@ -28,12 +28,20 @@ padding: 5px;
     flex:1 0;
 }
 .operations{
-    flex:1;
     flex-direction: column;
+    flex: 1;
+}
+.operations > button {
+    flex: 1;
 }
 .display{
     height: 50px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
 }
+
+
 
 
 .zero{
@@ -41,22 +49,18 @@ padding: 5px;
 }
 .decimal{
     order: 11;
-
 }
 .equal{
     order: 12;
 }
-
 .one{
     order:7;
-
 }
 .two{
     order: 8;
 }
 .three{
     order:9;
-
 }
 .four{
     order: 4;
