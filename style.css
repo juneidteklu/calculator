@@ -1,3 +1,36 @@
-h1{
-    color: red;
+*{
+    box-sizing: border-box;
+}
+.border{
+    border: solid black
+}
+.calculator{
+width: 600px;
+height: 700px;
+padding: 5px;
+
+}
+.buttons-container{
+    display: flex;
+    max-height: 92%;
+    height: 100%;
+    
+}
+.buttons-container > div{
+    display: flex;
+}
+.numbers{
+    flex: 2;
+    flex-wrap: wrap;   
+}
+.numbers > button{
+    min-width: 30%;
+    flex:1 0;
+}
+.operations{
+    flex:1;
+    flex-direction: column;
+}
+.display{
+    height: 50px;
 }
