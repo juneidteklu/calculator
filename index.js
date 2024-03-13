@@ -1,3 +1,7 @@
+/* 
+Maybe I can store all of the below function into their own objects and when its time to 
+calculate the two selected numbers, we can call the methods of the necessary object
+ */
 function add(num1, num2){
     return num1 + num2;
 }
@@ -22,9 +26,16 @@ const numberSelection = document.querySelector(".numbers");
 const operationSelection = document.querySelector(".operations");
 
 let firstNumber = "";
+let secondNumber = "";
+let operation = "";
 numberSelection.addEventListener(("click"), (event)=> {
-    firstNumber = event.target.textContent;
+    firstNumber += event.target.textContent;
 })
-console.log(firstNumber)
+
+operationSelection.addEventListener("click", (event)=>{
+     operation = event.target.textContent;
+    console.log(operation);
+})
+
 
 
