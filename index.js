@@ -24,6 +24,7 @@ function square(base,exponent){
 
 const numberSelection = document.querySelector(".numbers");
 const operationSelection = document.querySelector(".operations");
+const display = document.querySelector(".display");
 
 let firstNumber = "";
 let secondNumber = "";
@@ -35,7 +36,7 @@ let firstNumberEventListenerSwitch = true;
 function createFirstNumber(event){
     if(firstNumberEventListenerSwitch){
         firstNumber += event.target.textContent
-        console.log(firstNumber);
+        display.textContent = firstNumber;
     };
 }
 numberSelection.addEventListener(("click"),createFirstNumber)
@@ -45,7 +46,7 @@ operationSelection.addEventListener("click", (event)=>{
      operation = event.target.textContent;
      firstNumberEventListenerSwitch = false;
      secondNumberEventListenerSwitch = true;
-     console.log(operation);
+     display.textContent = operation;
 })
 
 
@@ -53,10 +54,22 @@ let secondNumberEventListenerSwitch = false;
 function createSecondNumber(event){
     if(secondNumberEventListenerSwitch){
         secondNumber += event.target.textContent
-        console.log(secondNumber);
+        display.textContent = secondNumber;
     };
 }
 numberSelection.addEventListener(("click"), createSecondNumber);
+
+document.querySelector(".equal").addEventListener(("click"), (event) => {
+    firstNumberEventListenerSwitch = true;
+    secondNumberEventListenerSwitch = false;
+    /* 
+    Perform correct operation. Display the result and set the secondNumber
+    to the result value. Reset firstNumber to empty string and use the secondNumber
+    for the next operation
+    */
+
+    event.stopPropagation();
+})
 
 
 
