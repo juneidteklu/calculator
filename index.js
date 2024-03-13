@@ -59,14 +59,23 @@ function createSecondNumber(event){
 }
 numberSelection.addEventListener(("click"), createSecondNumber);
 
+
+
 document.querySelector(".equal").addEventListener(("click"), (event) => {
     firstNumberEventListenerSwitch = true;
     secondNumberEventListenerSwitch = false;
+
     /* 
     Perform correct operation. Display the result and set the secondNumber
-    to the result value. Reset firstNumber to empty string and use the secondNumber
+    to the result value. Reset firstNumber to empty string and use the firstNumber
     for the next operation
     */
+   switch(operation){
+        case "+":
+            result = add(+firstNumber,+secondNumber);
+        break;
+   }
+   display.textContent = result;
 
     event.stopPropagation();
 })
