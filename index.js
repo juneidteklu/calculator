@@ -28,14 +28,41 @@ const operationSelection = document.querySelector(".operations");
 let firstNumber = "";
 let secondNumber = "";
 let operation = "";
-numberSelection.addEventListener(("click"), (event)=> {
-    firstNumber += event.target.textContent;
-})
+let result = "";
+
+
+let firstNumberEventListenerSwitch = true;
+function createFirstNumber(event){
+    if(firstNumberEventListenerSwitch){
+        firstNumber += event.target.textContent
+        console.log(firstNumber);
+    };
+}
+numberSelection.addEventListener(("click"),createFirstNumber)
+
 
 operationSelection.addEventListener("click", (event)=>{
      operation = event.target.textContent;
-    console.log(operation);
+     firstNumberEventListenerSwitch = false;
+     secondNumberEventListenerSwitch = true;
+     console.log(operation);
 })
+
+
+let secondNumberEventListenerSwitch = false;
+function createSecondNumber(event){
+    if(secondNumberEventListenerSwitch){
+        secondNumber += event.target.textContent
+        console.log(secondNumber);
+    };
+}
+numberSelection.addEventListener(("click"), createSecondNumber);
+
+
+
+
+
+
 
 
 
