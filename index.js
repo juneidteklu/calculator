@@ -1,4 +1,4 @@
-/* 
+;/* 
 Maybe I can store all of the below function into their own objects and when its time to 
 calculate the two selected numbers, we can call the methods of the necessary object
  */
@@ -18,7 +18,7 @@ function divide(dividend, divisor){
     return dividend/divisor;
 }
 
-function square(base,exponent){
+function exponent(base,exponent){
     return base**exponent;
 }
 
@@ -64,15 +64,31 @@ numberSelection.addEventListener(("click"), createSecondNumber);
 document.querySelector(".equal").addEventListener(("click"), (event) => {
     firstNumberEventListenerSwitch = true;
     secondNumberEventListenerSwitch = false;
-
-    /* 
-    Perform correct operation. Display the result and set the secondNumber
-    to the result value. Reset firstNumber to empty string and use the firstNumber
-    for the next operation
-    */
    switch(operation){
         case "+":
             result = add(+firstNumber,+secondNumber);
+            firstNumber = result;
+            secondNumber = "";
+        break;
+        case "-":
+            result = subtract(+firstNumber,+secondNumber);
+            firstNumber = result;
+            secondNumber = "";
+        break;
+        case "*":
+            result = multiply(+firstNumber,+secondNumber);
+            firstNumber = result;
+            secondNumber = "";
+        break;
+        case "/":
+            result = divide(+firstNumber,+secondNumber);
+            firstNumber = result;
+            secondNumber = "";
+        break;
+        case "^":
+            result = exponent(+firstNumber,+secondNumber);
+            firstNumber = result;
+            secondNumber = "";
         break;
    }
    display.textContent = result;
