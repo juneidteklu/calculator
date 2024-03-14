@@ -38,6 +38,9 @@ function createFirstNumber(event){
 numberSelection.addEventListener(("click"),createFirstNumber)
 
 
+
+
+
 operationSelection.addEventListener("click", (event)=>{
      operation = event.target.textContent;
      if(operation != "Clear"){
@@ -66,7 +69,10 @@ numberSelection.addEventListener(("click"), createSecondNumber);
 
 
 
-document.querySelector(".equal").addEventListener(("click"), (event) => {
+document.querySelector(".equal").addEventListener(("click"), evaluate);
+
+
+function evaluate(event) {
     firstNumberEventListenerSwitch = true;
     secondNumberEventListenerSwitch = false;
    switch(operation){
@@ -99,7 +105,7 @@ document.querySelector(".equal").addEventListener(("click"), (event) => {
    display.textContent = result;
 
     event.stopPropagation();
-})
+}
 
 
 
