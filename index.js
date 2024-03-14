@@ -1,7 +1,3 @@
-;/* 
-Maybe I can store all of the below function into their own objects and when its time to 
-calculate the two selected numbers, we can call the methods of the necessary object
- */
 function add(num1, num2){
     return num1 + num2;
 }
@@ -44,9 +40,18 @@ numberSelection.addEventListener(("click"),createFirstNumber)
 
 operationSelection.addEventListener("click", (event)=>{
      operation = event.target.textContent;
-     firstNumberEventListenerSwitch = false;
-     secondNumberEventListenerSwitch = true;
-     display.textContent = operation;
+     if(operation != "Clear"){
+        firstNumberEventListenerSwitch = false;
+        secondNumberEventListenerSwitch = true;
+        display.textContent = operation;
+     }
+     else{
+        firstNumber = "";
+        secondNumber = "";
+        operation = "";
+        result = "";
+        display.textContent = "";
+     }
 })
 
 
