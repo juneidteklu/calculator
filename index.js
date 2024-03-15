@@ -42,22 +42,23 @@ numberSelection.addEventListener(("click"),createFirstNumber)
 
 
 operationSelection.addEventListener("click", (event)=>{
-     operation = event.target.textContent;
-     if(operation != "Clear"){
-        if(secondNumber != ""){
-            evaluate();
-        }
+    operation = event.target.textContent;
+    if (operation != "Clear" && operation != "="){
         firstNumberEventListenerSwitch = false;
         secondNumberEventListenerSwitch = true;
         display.textContent = operation;
-     }
-     else{
+    }
+    else if(operation === "="){
+    }
+    else{
         firstNumber = "";
         secondNumber = "";
         operation = "";
         result = "";
         display.textContent = "";
-     }
+        firstNumberEventListenerSwitch = true;
+        secondNumberEventListenerSwitch = false;
+    }
 })
 
 
@@ -72,53 +73,53 @@ numberSelection.addEventListener(("click"), createSecondNumber);
 
 
 
-document.querySelector(".equal").addEventListener(("click"), evaluate);
+document.querySelector(".operations").addEventListener(("click"), evaluate);
 
 
 function evaluate(event) {
-    if(firstNumber != ""){
-        firstNumberEventListenerSwitch = false;
-        secondNumberEventListenerSwitch = true;
-    }
-    firstNumberEventListenerSwitch = true;
-    secondNumberEventListenerSwitch = false;
-   switch(operation){
-        case "+":
-            result = add(+firstNumber,+secondNumber);
-            firstNumber = result;
-            secondNumber = "";
-        break;
-        case "-":
-            result = subtract(+firstNumber,+secondNumber);
-            firstNumber = result;
-            secondNumber = "";
-        break;
-        case "*":
-            result = multiply(+firstNumber,+secondNumber);
-            firstNumber = result;
-            secondNumber = "";
-        break;
-        case "/":
-            result = divide(+firstNumber,+secondNumber);
-            firstNumber = result;
-            secondNumber = "";
-        break;
-        case "^":
-            result = exponent(+firstNumber,+secondNumber);
-            firstNumber = result;
-            secondNumber = "";
-        break;
-   }
-   display.textContent = result;
-
-    event.stopPropagation();
+   if(firstNumber != "" && secondNumber!= ""){
+         if(event.target.textContent == "="){
+            checkOperation();
+            firstNumberEventListenerSwitch = true;
+            secondNumberEventListenerSwitch = false;
+            event.stopPropagation();
+        }
+        else{
+            checkOperation();
+            firstNumberEventListenerSwitch = false;
+            secondNumberEventListenerSwitch = true;
+        }
+   } 
 }
 
 
-
-
-
-
-
-
-
+function checkOperation(operation){
+switch(operation){
+    case "+":
+        result = add(+firstNumber,+secondNumber);
+        firstNumber = result;
+        secondNumber = "";
+    break;
+    case "-":
+        result = subtract(+firstNumber,+secondNumber);
+        firstNumber = result;
+        secondNumber = "";
+    break;
+    case "*":
+        result = multiply(+firstNumber,+secondNumber);
+        firstNumber = result;
+        secondNumber = "";
+    break;
+    case "/":
+        result = divide(+firstNumber,+secondNumber);
+        firstNumber = result;
+        secondNumber = "";
+    break;
+    case "^":
+        result = exponent(+firstNumber,+secondNumber);
+        firstNumber = result;
+        secondNumber = "";
+    break;
+}
+display.textContent = result;
+}
