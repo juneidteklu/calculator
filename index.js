@@ -44,6 +44,9 @@ numberSelection.addEventListener(("click"),createFirstNumber)
 operationSelection.addEventListener("click", (event)=>{
      operation = event.target.textContent;
      if(operation != "Clear"){
+        if(secondNumber != ""){
+            evaluate();
+        }
         firstNumberEventListenerSwitch = false;
         secondNumberEventListenerSwitch = true;
         display.textContent = operation;
@@ -73,6 +76,10 @@ document.querySelector(".equal").addEventListener(("click"), evaluate);
 
 
 function evaluate(event) {
+    if(firstNumber != ""){
+        firstNumberEventListenerSwitch = false;
+        secondNumberEventListenerSwitch = true;
+    }
     firstNumberEventListenerSwitch = true;
     secondNumberEventListenerSwitch = false;
    switch(operation){
