@@ -26,6 +26,7 @@ let firstNumber = "";
 let secondNumber = "";
 let operation = "";
 let result = "";
+let equals = "";
 
 
 let firstNumberEventListenerSwitch = true;
@@ -42,13 +43,19 @@ numberSelection.addEventListener(("click"),createFirstNumber)
 
 
 operationSelection.addEventListener("click", (event)=>{
-    operation = event.target.textContent;
-    if (operation != "Clear" && operation != "="){
+    if(event.target.textContent === "="){
+        document.querySelector(".operations").addEventListener(("click"), evaluate);
+    }
+    else{
+        operation = event.target.textContent;
+    }
+    if (operation != "Clear" && equals != "="){
         firstNumberEventListenerSwitch = false;
         secondNumberEventListenerSwitch = true;
         display.textContent = operation;
     }
-    else if(operation === "="){
+    else if(equals === "="){
+        document.querySelector(".operations").addEventListener(("click"), evaluate);
     }
     else{
         firstNumber = "";
@@ -73,7 +80,6 @@ numberSelection.addEventListener(("click"), createSecondNumber);
 
 
 
-document.querySelector(".operations").addEventListener(("click"), evaluate);
 
 
 function evaluate(event) {
@@ -93,7 +99,10 @@ function evaluate(event) {
 }
 
 
-function checkOperation(operation){
+function checkOperation(){
+    if(secondNumber === 0 && operation === "/"){
+        return display.textContent = "No can do"
+    }
 switch(operation){
     case "+":
         result = add(+firstNumber,+secondNumber);
@@ -121,5 +130,6 @@ switch(operation){
         secondNumber = "";
     break;
 }
+
 display.textContent = result;
 }

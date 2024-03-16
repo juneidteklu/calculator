@@ -41,19 +41,27 @@ padding: 5px;
     align-items: center;
     font-size: 50px;
 }
+.operations > button:not(.equal){
+    background-color: #dadce0;
+}
+.numbers > button, .operations > button{
+    font-size: large;
+}
 
 
 
 
-
-.zero{
+.numbers > .zero{
     order: 10;
+    flex: 2.1;
 }
 .decimal{
     order: 11;
 }
 .equal{
     order: 12;
+    background-color: #4285f4;
+    color: white;
 }
 .one{
     order:7;
