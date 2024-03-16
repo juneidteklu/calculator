@@ -41,22 +41,23 @@ numberSelection.addEventListener(("click"),createFirstNumber)
 
 
 
+    
 
 operationSelection.addEventListener("click", (event)=>{
     if(event.target.textContent === "="){
-        document.querySelector(".operations").addEventListener(("click"), evaluate);
+     document.querySelector(".operations").addEventListener(("click"), evaluate); 
     }
-    else{
+    else{ 
         operation = event.target.textContent;
     }
-    if (operation != "Clear" && equals != "="){
+    if (operation != "Clear"&& equals != "="){
         firstNumberEventListenerSwitch = false;
         secondNumberEventListenerSwitch = true;
         display.textContent = operation;
     }
     else if(equals === "="){
         document.querySelector(".operations").addEventListener(("click"), evaluate);
-    }
+    } 
     else{
         firstNumber = "";
         secondNumber = "";
@@ -100,9 +101,10 @@ function evaluate(event) {
 
 
 function checkOperation(){
-    if(secondNumber === 0 && operation === "/"){
-        return display.textContent = "No can do"
-    }
+     if(secondNumber === "0" && operation === "/"){
+        display.textContent = "No can do";
+        return;
+    } 
 switch(operation){
     case "+":
         result = add(+firstNumber,+secondNumber);
